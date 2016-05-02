@@ -75,4 +75,11 @@ public class UserRestController {
     public List<Comment> getComments(){
         return commentService.getCommentsByMaterialId(Condition.getIdMaterial());
     }
+
+    @RequestMapping(value = "get/users" , method = RequestMethod.GET)
+    public List<User> getAllUsers(){
+        List<User> users = userService.getAllUsers();
+        return users;
+    }
+
 }

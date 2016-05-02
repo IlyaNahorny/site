@@ -68,5 +68,17 @@ userModule.controller('TranslateController',function ($scope,$http,$translate) {
     $scope.changeLanguage = function (key) {
         $translate.use(key);
     };
-
  });
+
+userModule.controller('TranslateController1',function ($scope,$http,$translate) {
+    $scope.changeLanguage = function (key) {
+        $translate.use(key);
+    };
+
+    $scope.users = {};
+
+    $http.get('get/users').success(function (data) {
+        $scope.users = data;
+    });
+
+});

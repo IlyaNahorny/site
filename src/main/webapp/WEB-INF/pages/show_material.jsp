@@ -135,8 +135,16 @@
                     <div class="row" style="padding-left: 50px; font-size: x-large"><a href="/account/{{com.username}}">{{com.username}}</a></div>
                     <div class="row"><img ng-src="{{com.url}}" width="150" height="150"></div>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-8">
                     <div class="row" style="font-size: large; margin-top: 30px">{{com.text}}</div>
+                </div>
+                <div class="col-md-1 col-md-offset-1">
+                    <div class="row" style="font-size: x-large;margin-top: 140px">
+                        <a href ng-click="like('${name}',com.id_comment)">
+                            <span class="glyphicon glyphicon-heart-empty" ></span>
+                        </a>
+                        0
+                    </div>
                 </div>
             </div>
         </div>

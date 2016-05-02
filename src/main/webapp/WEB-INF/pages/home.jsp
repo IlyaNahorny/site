@@ -13,6 +13,11 @@
     body {
         background-color: #f8fff9;
         color: #5b5b5b;
+        background: url(http://luxfon.com/pic/201203/1366x768/luxfon.com-3206.jpg) repeat;
+        /*-moz-background-size: 100%; /!* Firefox 3.6+ *!/*/
+        /*-webkit-background-size: 100%; /!* Safari 3.1+ и Chrome 4.0+ *!/*/
+        /*-o-background-size: 100%; /!* Opera 9.6+ *!/*/
+        background-size: 100%; /* Современные браузеры */
     }
 </style>
 
@@ -26,8 +31,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-storage-cookie/2.8.1/angular-translate-storage-cookie.js"></script>
 <script src="/resources/angular/translatePage.js"></script>
 </head>
-<body ng-app="translatePage" ng-controller="TranslateController">
-<nav class="navbar navbar-default">
+<body ng-app="translatePage" ng-controller="TranslateController1">
+<nav class="navbar navbar-default" style="opacity: 0.4">
     <div class="container-fluid">
         <div class="navbar-header">
             <div class="navbar-brand">{{'PROJNAME' | translate}}</div>
@@ -75,21 +80,28 @@
     <div class="row-fluid">
         <center><h1>{{'HEADERHOME' | translate}}</h1></center>
         <div class="col-md-5 col-md-offset-2">
-            <c:forEach items="${users}" var="user">
+            <div ng-repeat="user in users | filter:searchText">
                 <div class="row" style="margin-top: 15px">
                     <div class="col-md-5">
-                        <a href="account/${user.username}">
-                            <img src=${user.url} class="img-rounded" width="160" height="150">
+                        <a href="account/{{user.username}}">
+                            <img ng-src="{{user.url}}" class="img-rounded" width="160" height="150">
                         </a>
                     </div>
                     <div class="col-md-5" style="font-size: 20px">
                         <p>
-                                ${user.firstName} ${user.lastName}
+                            {{user.firstName}} {{user.lastName}}
                         </p>
                     </div>
                 </div>
+            </div>
 
-            </c:forEach>
+        </div>
+        <div class="col-md-3 col-md-offset-2">
+            <div class="form-group">
+                <label for="search">Search:</label>
+                <input type="text" class="form-control" id="search" placeholder="Input text for search"
+                       ng-model="searchText" required>
+            </div>
         </div>
 
     </div>

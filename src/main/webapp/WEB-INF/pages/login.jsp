@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <html>
 
@@ -8,6 +8,12 @@
     <title>Login</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/resources/css/style/form.css"/>
+    <style>
+        body {
+            background: url(http://luxfon.com/pic/201203/1366x768/luxfon.com-3206.jpg) repeat;
+            background-size: 100%; /* Современные браузеры */
+        }
+    </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -21,7 +27,7 @@
 </head>
 
 <body ng-app="translatePage" ng-controller="TranslateController">
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style="opacity: 0.4">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="/home">{{'PROJNAME' | translate}}</a>
@@ -52,13 +58,14 @@
         <div class="col-md-6 col-md-offset-2">
             <form class="form-horizontal" method="post" action="<c:url value='/j_spring_security_check'  />">
 
-                <c:if test="${not empty error}">
-                    <div class="alert alert-danger">${error}</div>
-                </c:if>
-                <c:if test="${not empty msg}">
-                    <div class="alert alert-success">${msg}</div>
-                </c:if>
-
+                <div style="margin-left: 90px">
+                    <c:if test="${not empty error}">
+                        <div class="alert alert-danger">${error}</div>
+                    </c:if>
+                    <c:if test="${not empty msg}">
+                        <div class="alert alert-success">${msg}</div>
+                    </c:if>
+                </div>
                 <div class="form-group">
                     <label class="control-label col-sm-4">{{'USERNAME' | translate}}:</label>
 

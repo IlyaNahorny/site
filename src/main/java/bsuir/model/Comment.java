@@ -17,7 +17,7 @@ public class Comment implements Serializable{
     @JsonProperty
     private Integer id_comment;
 
-    @Column(name = "text", nullable = false)
+    @Column(name = "text", nullable = false, length = 65536)
     @JsonProperty
     private String text;
 

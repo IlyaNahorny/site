@@ -15,6 +15,8 @@
         body{
             background-color: #f9fffa;
             color: #5b5b5b;
+            background: url(http://luxfon.com/pic/201203/1366x768/luxfon.com-3206.jpg) repeat;
+            background-size: 100%; /* Современные браузеры */
         }
     </style>
 
@@ -31,7 +33,7 @@
 </head>
 
 <body ng-app="translatePage" ng-controller="TranslateController">
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style="opacity: 0.4">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="/home">{{'PROJNAME' | translate}}</a>
@@ -57,14 +59,11 @@
         </ul>
     </div>
 </nav>
-
-<center>
-    <h1>{{'WELCOMREGPAGE' | translate}}</h1>
-</center>
-
 <div class="container">
-    <div class="row">
-
+    <div class="row" style="margin-top: 50px">
+        <center >
+            <h1>{{'WELCOMREGPAGE' | translate}}</h1>
+        </center>
         <div class="col-md-6 col-md-offset-2">
             <form:form class="form-horizontal" method="post" commandName="user" action="registration">
                 <c:if test="${not empty error}">
