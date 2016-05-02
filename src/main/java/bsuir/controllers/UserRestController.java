@@ -40,9 +40,8 @@ public class UserRestController {
     }
 
     @RequestMapping(value="/update/image", method = RequestMethod.POST)
-    public String updateImage(@RequestBody String urlPicture){
-        userService.updateImage(getCurrentUser().getId(),urlPicture);
-        return "success";
+    public void updateImage(@RequestBody User user){
+        userService.updateImage(getCurrentUser().getId(),user.getUrl());
     }
 
     @RequestMapping(value="/material/rating/set", method = RequestMethod.POST)

@@ -153,7 +153,7 @@
             </div>
 
             <div class="form-group">
-                <img ng-src="{{urlPicture}}" ng-show="showPicture" class="img-rounded" width="370" height="250">
+                <img ng-src="{{urlUser}}" ng-show="showPicture" class="img-rounded" width="370" height="250">
             </div>
             <div class="form-group">
                 <button class="btn btn-default" ng-click="updateImage()">{{ 'PHOTO' | translate }}</button>

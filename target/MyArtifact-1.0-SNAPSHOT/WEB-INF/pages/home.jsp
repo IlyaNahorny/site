@@ -76,11 +76,10 @@
         <center><h1>{{'HEADERHOME' | translate}}</h1></center>
         <div class="col-md-5 col-md-offset-2">
             <c:forEach items="${users}" var="user">
-                <div class="row">
+                <div class="row" style="margin-top: 15px">
                     <div class="col-md-5">
                         <a href="account/${user.username}">
-                            <img src=${user.url}
-                                         class="img-rounded" width="160" height="150">
+                            <img src=${user.url} class="img-rounded" width="160" height="150">
                         </a>
                     </div>
                     <div class="col-md-5" style="font-size: 20px">

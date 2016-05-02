@@ -74,7 +74,7 @@
             <div>
                 <center><h1>{{material.materialName}}</h1></center>
             </div>
-            <div style="min-height: 510px;">
+            <div style="min-height: 510px;font-size: large">
                      <span ng-if="material.template === 'template1'" ;>
                         <img ng-src="{{material.url}}" width="700" height="500"
                              align="left" hspace="10" class="img-rounded">
@@ -131,9 +131,13 @@
     <div class="well" ng-repeat = "com in material.comments">
         <div class="container-fluid">
             <div class="row" >
-                {{com.text}}
-                <img ng-src="{{com.url}}">
-
+                <div class="col-md-2">
+                    <div class="row" style="padding-left: 50px; font-size: x-large"><a href="/account/{{com.username}}">{{com.username}}</a></div>
+                    <div class="row"><img ng-src="{{com.url}}" width="150" height="150"></div>
+                </div>
+                <div class="col-md-7">
+                    <div class="row" style="font-size: large; margin-top: 30px">{{com.text}}</div>
+                </div>
             </div>
         </div>
     </div>

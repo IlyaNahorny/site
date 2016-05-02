@@ -88,8 +88,10 @@ uploadImageModule.controller('UploadImageController', function ($scope, $rootSco
     };
 
     $scope.showPicture = false;
-    $scope.urlPicture = '';
-
+    $scope.urlUser = '';
+    var objUser = {
+      'url': ''
+    };
     $scope.$watch('file_image', function () {
         var file = $scope.file_image;
         if (!file || file.length > 1) return;
@@ -104,43 +106,32 @@ uploadImageModule.controller('UploadImageController', function ($scope, $rootSco
                 "width": file.progress
             };
             file.status = "Uploading... " + file.progress + "%";
-            //console.log(file.progress);
             if (!$scope.$$phase) {
                 $scope.$apply();
             }
         })
             .success(function (data) {
-                $scope.urlPicture = data.url;
+                objUser.url = data.url;
+                $scope.urlUser = objUser.url;
                 $scope.showPicture = true;
             })
             .error(function () {
                 alert("Error while downloading image!");
             });
-
     });
 
     $scope.updateImage = function() {
-    //    $http.post('/update/image',user).success(function () {
-    //        $scope.reset();
-    //        alert("success");
-    //    })
-    //        .error(function () {
-    //            alert("error");
-    //        });
+        if(objUser.url != ""){
+            $http.post('/update/image',objUser).success(function () {
+                $scope.reset();
+                alert("success");
+            })
+                .error(function () {
+                    alert("error");
+                });
+        }else alert("you don't select an image")
 
-        $.ajax({
-            type : "POST",
-            contentType : "application/json",
-            url : "/update/image",
-            data : JSON.stringify(urlPicture),
-            dataType : 'json',
-            success : function() {
-                alert("SUCCESS");
-            },
-            error : function() {
-                alert("ERROR");
-            }
-        });
+    //console.log(objUser);
     };
 
     $scope.reset = function () {
