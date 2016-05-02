@@ -1,0 +1,36 @@
+body {
+    background-color: #8F908A;
+    color: #8F908A;
+}
+
+nav.navbar{
+    background-color:#2f3129;
+}
+
+a{
+    color: #8F908A;
+}
+
+a:hover{
+    color: #761c19;
+    text-decoration: none;
+}
+
+/*a:active{*/
+    /*outline:none;*/
+    /*text-decoration: none;*/
+/*}*/
+/*a:visited {*/
+    /*outline:none;*/
+    /*text-decoration: none;*/
+/*}*/
+
+a:visited {
+    color: #8F908A;
+}
+
+div.well{
+    background-color:#2f3129;
+}
+
+

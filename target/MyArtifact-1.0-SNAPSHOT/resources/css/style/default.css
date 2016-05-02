@@ -1,0 +1,26 @@
+
+body {
+    background-color: #D8DFBB;
+    color: #080808;
+}
+
+nav.navbar{
+    background-color: #8B8F78;
+}
+
+a{
+    color: #080808;
+}
+
+a:hover{
+    color: #761c19;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #080808;
+}
+
+div.well{
+    background-color: #B8BF95;
+}
