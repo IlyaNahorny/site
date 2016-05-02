@@ -10,4 +10,6 @@ import java.util.List;
 public interface CommentDao {
     void add(Comment comment);
     List<Comment> getCommentsByMaterialId(Integer id);
+    List<Comment> getCommentsByUsername(String username);
+    void updateUrl(Integer id ,String url);
 }

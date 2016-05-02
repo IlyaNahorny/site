@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import bsuir.dao.CommentDao;
 import bsuir.model.Comment;
 
+import javax.swing.text.html.HTMLDocument;
 import javax.transaction.Transactional;
 import java.util.Iterator;
 import java.util.List;
@@ -32,5 +33,16 @@ public class CommentServiceImpl implements CommentService {
 
     public List<Comment> getCommentsByMaterialId(Integer id) {
         return commentDao.getCommentsByMaterialId(id);
+    }
+
+    public void updateUrlPictures(String username, String url) {
+        List<Comment> comments = commentDao.getCommentsByUsername(username);
+        if(comments != null){
+            Iterator iterator = comments.iterator();
+            while(iterator.hasNext()){
+                Comment comment = (Comment)iterator.next();
+                commentDao.updateUrl(comment.getId_comment(), url);
+            }
+        }
     }
 }

@@ -6,6 +6,7 @@ import bsuir.model.Material;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -17,8 +18,6 @@ public class CommentDaoImpl implements CommentDao{
     @PersistenceContext
     EntityManager entityManager;
 
-
-
     public void add(Comment comment) {
         entityManager.persist(comment);
     }
@@ -26,5 +25,17 @@ public class CommentDaoImpl implements CommentDao{
     public List<Comment> getCommentsByMaterialId(Integer id) {
         List<Comment> comments = entityManager.find(Material.class,id).getComments();
         return comments;
+    }
+
+    public List<Comment> getCommentsByUsername(String username) {
+        List<Comment> comments = null;
+        comments = entityManager.createQuery("SELECT u FROM Comment u where u.username = :name",Comment.class)
+                .setParameter("name", username).getResultList();
+        return comments;
+    }
+
+    public void updateUrl(Integer id, String url) {
+        Comment comment = entityManager.getReference(Comment.class,id);
+        comment.setUrl(url);
     }
 }
