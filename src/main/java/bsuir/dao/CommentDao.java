@@ -12,4 +12,6 @@ public interface CommentDao {
     List<Comment> getCommentsByMaterialId(Integer id);
     List<Comment> getCommentsByUsername(String username);
     void updateUrl(Integer id ,String url);
+    void updateLike(Integer id ,int value);
+    Comment getCommentById(Integer id);
 }

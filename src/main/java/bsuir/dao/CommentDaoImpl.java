@@ -29,7 +29,7 @@ public class CommentDaoImpl implements CommentDao{
 
     public List<Comment> getCommentsByUsername(String username) {
         List<Comment> comments = null;
-        comments = entityManager.createQuery("SELECT u FROM Comment u where u.username = :name",Comment.class)
+        comments = entityManager.createQuery("SELECT u FROM Comment u WHERE u.username = :name",Comment.class)
                 .setParameter("name", username).getResultList();
         return comments;
     }
@@ -37,5 +37,14 @@ public class CommentDaoImpl implements CommentDao{
     public void updateUrl(Integer id, String url) {
         Comment comment = entityManager.getReference(Comment.class,id);
         comment.setUrl(url);
+    }
+
+    public void updateLike(Integer id, int value) {
+        Comment comment = entityManager.getReference(Comment.class,id);
+        comment.setKol_like(value);
+    }
+
+    public Comment getCommentById(Integer id) {
+        return entityManager.find(Comment.class, id);
     }
 }

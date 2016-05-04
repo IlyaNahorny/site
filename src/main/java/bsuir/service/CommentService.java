@@ -12,4 +12,6 @@ public interface CommentService {
     List<Comment> getCommentsByMaterialId(Integer id);
     int getAmountComments(Integer id);
     void updateUrlPictures(String username, String url);
+    void updateLike(Integer id ,int value);
+    Comment getCommentById(Integer id);
 }

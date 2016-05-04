@@ -45,4 +45,12 @@ public class CommentServiceImpl implements CommentService {
             }
         }
     }
+
+    public void updateLike(Integer id, int value) {
+        commentDao.updateLike(id, value);
+    }
+
+    public Comment getCommentById(Integer id) {
+        return commentDao.getCommentById(id);
+    }
 }

@@ -140,10 +140,10 @@
                 </div>
                 <div class="col-md-1 col-md-offset-1">
                     <div class="row" style="font-size: x-large;margin-top: 140px">
-                        <a href ng-click="like('${name}',com.id_comment)">
+                        <a href ng-click="setLike('${name}',com.id_comment)">like
                             <span class="glyphicon glyphicon-heart-empty" ></span>
                         </a>
-                        0
+                        {{com.kol_like}}
                     </div>
                 </div>
             </div>

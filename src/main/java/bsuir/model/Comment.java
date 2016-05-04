@@ -29,6 +29,10 @@ public class Comment implements Serializable{
     @JsonProperty
     private String url;
 
+    @Column(name = "kol_like", nullable = false)
+    @JsonProperty
+    private int kol_like = 0;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_material", referencedColumnName = "id_material", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private Material material;
@@ -71,5 +75,13 @@ public class Comment implements Serializable{
 
     public void setMaterial(Material material) {
         this.material = material;
+    }
+
+    public int getKol_like() {
+        return kol_like;
+    }
+
+    public void setKol_like(int kol_like) {
+        this.kol_like = kol_like;
     }
 }

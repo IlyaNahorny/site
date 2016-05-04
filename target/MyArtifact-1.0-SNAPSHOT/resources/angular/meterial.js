@@ -191,6 +191,22 @@ materialModule.controller('MaterialController', function ($scope,$window, $http,
         $scope.comments = data;
     });
 
+    var like = {
+        'userName': '',
+        'comment_id':''
+    };
+    $scope.setLike = function(userName, comment_id){
+        like.userName = userName;
+        like.comment_id = comment_id;
+        //console.log(like);
+        $http.post('/like/set', like).success(function(data) {
+            $scope.material = data;
+        })
+            .error(function () {
+                alert("error");
+            });
+    };
+
     $scope.addComment = function(text, material){
         if(text !== undefined){
             var comment = {

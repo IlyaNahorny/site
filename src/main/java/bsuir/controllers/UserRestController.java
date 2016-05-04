@@ -1,5 +1,6 @@
 package bsuir.controllers;
 
+import bsuir.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -7,10 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import bsuir.model.Comment;
-import bsuir.model.Material;
-import bsuir.model.Rating;
-import bsuir.model.User;
 import bsuir.service.*;
 
 import java.util.List;
@@ -28,6 +25,8 @@ public class UserRestController {
     RatingService ratingService;
     @Autowired
     CommentService commentService;
+    @Autowired
+    LikeService likeService;
 
     User getCurrentUser(){
         try{
@@ -80,6 +79,20 @@ public class UserRestController {
     public List<User> getAllUsers(){
         List<User> users = userService.getAllUsers();
         return users;
+    }
+
+    @RequestMapping(value = "/like/set", method = RequestMethod.POST)
+    public Material  setLike(@RequestBody Like like){
+        List<Like> likes = likeService.getLikesByIdComment(like.getComment_id());
+        Like likeExist = likeService.checkLike(likes, like.getUserName());
+        if (likeExist != null){
+            likeService.deleteLike(likeExist);
+        }else {
+            likeService.addLike(like);
+        }
+        likes = likeService.getLikesByIdComment(like.getComment_id());
+        commentService.updateLike(like.getComment_id(), likeService.numberOfLikes(likes));
+        return materialService.getMaterialById(commentService.getCommentById(like.getComment_id()).getMaterial().getId_material());
     }
 
 }
