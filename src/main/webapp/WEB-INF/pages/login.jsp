@@ -70,14 +70,14 @@
                     <label class="control-label col-sm-4">{{'USERNAME' | translate}}:</label>
 
                     <div class="col-sm-8">
-                        <input type="text" name="username" class="form-control" placeholder="Enter username"/>
+                        <input type="text" name="username" class="form-control" placeholder="{{'ENTERUSERNAME' | translate}}"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-4">{{'PASSWORD' | translate}}:</label>
 
                     <div class="col-sm-8">
-                        <input type="password" name="password" class="form-control" placeholder="Enter password"/>
+                        <input type="password" name="password" class="form-control" placeholder="{{'ENTERPASSWORD' | translate}}"/>
                     </div>
                 </div>
                 <div class="form-group">

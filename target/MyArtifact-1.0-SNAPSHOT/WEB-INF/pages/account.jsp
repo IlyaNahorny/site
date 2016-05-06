@@ -135,9 +135,9 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div style="color: #776c3b; font-size: large;">Рейтинг статьи: ${material.rating} | Коментариев: ${material.comment} |
-                                <a href="/account/${user.username}/${material.id_material}" style="color: #776c3b; text-decoration: none; text-shadow: #985f0d 0 0 2px;">Читать
-                                    полностью</a></div>
+                            <div style="color: #776c3b; font-size: large;">{{'RATING' | translate}}: ${material.rating} | {{'COMMENTS' | translate}}: ${material.comment} |
+                                <a href="/account/${user.username}/${material.id_material}" style="color: #776c3b; text-decoration: none; text-shadow: #985f0d 0 0 2px;">
+                                    {{'READALL' | translate}}</a></div>
                         </div>
                     </div>
                 </div>

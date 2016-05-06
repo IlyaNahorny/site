@@ -87,10 +87,14 @@
                 {{material.description}}
             </div>
             <div class="row" style="font-size: xx-large;">
-                <div class="col-md-8"> Рейтинг : {{material.rating}} | Коментариев : {{material.comment}} |
-                    <a href ng-click="commentShow = !commentShow">Комментировать</a></div>
+                <div class="col-md-9"> {{'RATING' | translate}} : {{material.rating}} | {{'COMMENTS' | translate}} :
+                    {{material.comment}} |
+                    <sec:authorize access="isAuthenticated()">
+                        <a href ng-click="commentShow = !commentShow">{{'COMMENT' | translate}}</a>
+                    </sec:authorize>
+                </div>
                 <sec:authorize access="isAuthenticated()">
-                    <div class="col-md-2 col-md-offset-2">
+                    <div class="col-md-2 col-md-offset-1">
                         <a href ng-click="rating('${name}',material.id_material,'down')"
                            style="text-decoration: none;">
                             <span class="glyphicon glyphicon-thumbs-down"></span>
@@ -106,44 +110,48 @@
 
     </div>
 
+    <%--<sec:authorize access="isAuthenticated()">--%>
     <div class="well" ng-show="commentShow">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-8">
                     <div class="form-group">
-                        <label for="descriptionComment">Comment</label>
+                        <label for="descriptionComment">{{'COMMENT' | translate}}</label>
                          <textarea rows="5" class="form-control" id="descriptionComment"
-                                   placeholder="Input comment text"
+                                   placeholder="{{'COMMENTTEXT' | translate}}"
                                    ng-model="comment.text" required>
                          </textarea>
                     </div>
                 </div>
-                <div class="col-md-1 col-md-offset-2">
+                <div class="col-md-1 col-md-offset-1">
                     <button class="btn" ng-click=addComment(comment.text,material) style="margin-top: 40px">
-                        Add
+                        {{'COMMENTADD' | translate}}
                     </button>
-                    <button class="btn" ng-click=clearComment() style="margin-top: 10px">Clear</button>
+                    <button class="btn" ng-click=clearComment() style="margin-top: 10px">{{'CLEAR' | translate}}
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+    <%--</sec:authorize>--%>
 
-    <div class="well" ng-repeat = "com in material.comments">
+    <div class="well" ng-repeat="com in material.comments">
         <div class="container-fluid">
-            <div class="row" >
+            <div class="row">
                 <div class="col-md-2">
-                    <div class="row" style="padding-left: 50px; font-size: x-large"><a href="/account/{{com.username}}">{{com.username}}</a></div>
+                    <div class="row" style="padding-left: 50px; font-size: x-large"><a href="/account/{{com.username}}">{{com.username}}</a>
+                    </div>
                     <div class="row"><img ng-src="{{com.url}}" width="150" height="150"></div>
                 </div>
                 <div class="col-md-8">
                     <div class="row" style="font-size: large; margin-top: 30px">{{com.text}}</div>
                 </div>
-                <div class="col-md-1 col-md-offset-1">
+                <div class="col-md-2 ">
                     <div class="row" style="font-size: x-large;margin-top: 140px">
-                        <a href ng-click="setLike('${name}',com.id_comment)">like
-                            <span class="glyphicon glyphicon-heart-empty" ></span>
-                        </a>
-                        {{com.kol_like}}
+                        <sec:authorize access="isAuthenticated()">
+                            <a href ng-click="setLike('${name}',com.id_comment)">{{'LIKE' | translate}}</a>
+                        </sec:authorize>
+                        <span class="glyphicon glyphicon-heart-empty"></span>{{com.kol_like}}
                     </div>
                 </div>
             </div>

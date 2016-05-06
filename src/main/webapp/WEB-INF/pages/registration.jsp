@@ -73,14 +73,14 @@
                     <label class="control-label col-sm-4" for="firstName">{{'FIRSTNAME' | translate}}:</label>
 
                     <div class="col-sm-8">
-                        <form:input path="firstName" type="text" class="form-control" placeholder="Enter first name"/>
-                    </div>
+                        <form:input path="firstName" type="text" class="form-control" placeholder="{{'ENTERFIRSTNAME' | translate}}"/>
+                </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-4" for="lastName">{{'LASTNAME' | translate}}:</label>
 
                     <div class="col-sm-8">
-                        <form:input path="lastName" type="text" class="form-control" placeholder="Enter last name"/>
+                        <form:input path="lastName" type="text" class="form-control" placeholder="{{'ENTERLASTNAME' | translate}}"/>
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@
                     <label class="control-label col-sm-4" for="city">{{'CITY' | translate}}:</label>
 
                     <div class="col-sm-8">
-                        <form:input path="city" type="text" class="form-control" placeholder="Enter your city"/>
+                        <form:input path="city" type="text" class="form-control" placeholder="{{'ENTERCITY' | translate}}"/>
                     </div>
                 </div>
 
@@ -96,7 +96,7 @@
                     <label class="control-label col-sm-4" for="job">{{'JOB' | translate}}:</label>
 
                     <div class="col-sm-8">
-                        <form:input path="job" type="text" class="form-control" placeholder="Enter your place work"/>
+                        <form:input path="job" type="text" class="form-control" placeholder="{{'ENTERPLACEWORK' | translate}}"/>
                     </div>
                 </div>
 
@@ -104,14 +104,14 @@
                     <label class="control-label col-sm-4" for="username">{{'USERNAME' | translate}}:</label>
 
                     <div class="col-sm-8">
-                        <form:input path="username" type="text" class="form-control" placeholder="Enter username"/>
+                        <form:input path="username" type="text" class="form-control" placeholder="{{'ENTERUSERNAME' | translate}}"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-4" for="password">{{'PASSWORD' | translate}}:</label>
 
                     <div class="col-sm-8">
-                        <form:input path="password" type="password" class="form-control" placeholder="Enter password"/>
+                        <form:input path="password" type="password" class="form-control" placeholder="{{'ENTERPASSWORD' | translate}}"/>
                     </div>
                 </div>
 

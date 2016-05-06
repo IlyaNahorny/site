@@ -36,7 +36,15 @@ materialModule.config(['$translateProvider', function ($translateProvider) {
         ADDIMAGE: 'Add image',
         TEMPLATE: 'Template',
         TEMPLSELECT: 'Template selection',
-        ADMINPAGE: 'Admin page'
+        ADMINPAGE: 'Admin page',
+        RATING:'Article rating',
+        COMMENTS:'Comments',
+        READALL:'Read completely',
+        COMMENT:'Add a comment',
+        COMMENTADD:'Add comment',
+        CLEAR:'Clear',
+        COMMENTTEXT:'Input comment text',
+        LIKE:'Like'
 
     })
         .translations('ru', {
@@ -75,7 +83,16 @@ materialModule.config(['$translateProvider', function ($translateProvider) {
             ADDIMAGE: 'Добавить изображение',
             TEMPLATE: 'Шаблон',
             TEMPLSELECT: 'Выбор шаблона',
-            ADMINPAGE: 'Страница админа'
+            ADMINPAGE: 'Страница админа',
+            COMMENT:'Комментировать',
+            COMMENTADD:'Добавить коментарий',
+            CLEAR:'Очистить',
+            RATING:'Рейтинг статьи',
+            COMMENTS:'Коментариев',
+            READALL:'Читать полностью',
+            COMMENTTEXT:'Введите текст коментария',
+            LIKE:'Лайк'
+
         });
 
     $translateProvider.preferredLanguage('ru');

@@ -79,6 +79,8 @@
 <div class="container">
     <div class="row-fluid">
         <center><h1>{{'HEADERHOME' | translate}}</h1></center>
+    </div>
+    <div class="row" style="margin-top: 30px">
         <div class="col-md-5 col-md-offset-2">
             <div ng-repeat="user in users | filter:searchText">
                 <div class="row" style="margin-top: 15px">
@@ -91,9 +93,11 @@
                         <p style="font-size: x-large">
                             {{user.firstName}} {{user.lastName}}
                         </p>
+
                         <p>
                             {{'CITY' | translate}} : {{user.city}}
                         </p>
+
                         <p>
                             {{'JOB' | translate}} : {{user.job}}
                         </p>
@@ -104,12 +108,11 @@
         </div>
         <div class="col-md-3 col-md-offset-2">
             <div class="form-group">
-                <label for="search">Search:</label>
-                <input type="text" class="form-control" id="search" placeholder="Input text for search"
+                <label for="search">{{'SEARCH' | translate }}:</label>
+                <input type="text" class="form-control" id="search" placeholder="{{'SEARCHTEXT' | translate }}"
                        ng-model="searchText" required>
             </div>
         </div>
-
     </div>
 </div>
 

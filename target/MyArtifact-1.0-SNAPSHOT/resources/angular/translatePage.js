@@ -11,7 +11,7 @@ userModule.config(['$translateProvider', function ($translateProvider) {
         PASSWORD: 'Password',
         FIRSTNAME: 'First name',
         LASTNAME: 'Last name',
-        HEADERHOME : 'All registered users of the site educational materials',
+        HEADERHOME : 'All registered users of the site "Educational materials"',
         LANGUAGE: 'Language',
         CITY: 'City',
         JOB: 'Job',
@@ -27,7 +27,18 @@ userModule.config(['$translateProvider', function ($translateProvider) {
         STYLE:'Style',
         LIGHT: 'light',
         DARK:'dark',
-        ADMINPAGE: 'Admin page'
+        ADMINPAGE: 'Admin page',
+        ENTERUSERNAME: 'Enter username',
+        ENTERPASSWORD: 'Enter password',
+        ENTERPLACEWORK: 'Enter your place work',
+        ENTERCITY:'Enter your city',
+        ENTERFIRSTNAME:'Enter first name',
+        ENTERLASTNAME:'Enter last name',
+        SEARCH:'Search',
+        SEARCHTEXT:'Input text for search',
+        RATING:'Article rating',
+        COMMENTS:'Comments',
+        READALL:'Read completely'
 
     })
         .translations('ru', {
@@ -41,7 +52,7 @@ userModule.config(['$translateProvider', function ($translateProvider) {
             PASSWORD: 'Пароль',
             FIRSTNAME: 'Имя',
             LASTNAME: 'Фамилия',
-            HEADERHOME: 'Все зарегистрированные пользователи сайта учебные материалы',
+            HEADERHOME: 'Все зарегистрированные пользователи сайта "Учебные материалы"',
             LANGUAGE:'Язык',
             CITY: 'Город',
             JOB: 'Место работы',
@@ -57,7 +68,18 @@ userModule.config(['$translateProvider', function ($translateProvider) {
             STYLE:'Стиль',
             LIGHT: 'светлый',
             DARK:'темный',
-            ADMINPAGE: 'Страница админа'
+            ADMINPAGE: 'Страница админа',
+            ENTERUSERNAME: 'Введите имя пользователя',
+            ENTERPASSWORD: 'Введите пороль',
+            ENTERPLACEWORK: 'Введите место работы',
+            ENTERCITY:'Введите город',
+            ENTERFIRSTNAME:'Введите имя',
+            ENTERLASTNAME:'Введите фамилию',
+            SEARCH:'Поиск',
+            SEARCHTEXT:'Введите текст для поиска',
+            RATING:'Рейтинг статьи',
+            COMMENTS:'Коментариев',
+            READALL:'Читать полностью'
         });
 
     $translateProvider.preferredLanguage('ru');
