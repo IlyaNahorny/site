@@ -25,6 +25,15 @@ public class HomeController {
         return "home";
     }
 
+    @RequestMapping(value = "/admin")
+    public String showAdminPage(){
+        return "admin";
+    }
+    @RequestMapping(value = "/403")
+    public String show403Page(){
+        return "403";
+    }
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String showLoginPage(@RequestParam(value = "error", required = false) String error,
                                 @RequestParam(value = "logout", required = false) String logout,
@@ -56,6 +65,9 @@ public class HomeController {
 
     @RequestMapping(value = "/account", method = RequestMethod.GET)
     public String showMyAccount() {
+        if(getCurrentUser().isEnabled() == false){
+            return "redirect:403";
+        }
         return "redirect:account/"+getCurrentUser().getUsername();
     }
 

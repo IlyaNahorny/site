@@ -81,6 +81,23 @@ public class UserRestController {
         return users;
     }
 
+    @RequestMapping (value = "user/delete", method = RequestMethod.POST)
+    public List<User> deleteUser(@RequestBody User user){
+        userService.remove(user.getId());
+        return userService.getUsersWithoutAdmin();
+    }
+
+    @RequestMapping (value = "user/ban", method = RequestMethod.POST)
+    public List<User> banUser(@RequestBody User user){
+        userService.banUser(user.getId());
+        return userService.getUsersWithoutAdmin();
+    }
+
+    @RequestMapping(value = "users/withoutAdmin" , method = RequestMethod.GET)
+    public List<User> getUsersWithoutAdmin(){
+        return userService.getUsersWithoutAdmin();
+    }
+
     @RequestMapping(value = "/like/set", method = RequestMethod.POST)
     public Material  setLike(@RequestBody Like like){
         List<Like> likes = likeService.getLikesByIdComment(like.getComment_id());

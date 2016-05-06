@@ -24,33 +24,34 @@ public class UserDaoImpl implements UserDao {
     }
 
     public void remove(Integer userId) {
-
+        User user = entityManager.find(User.class, userId);
+        if (user != null) entityManager.remove(user);
     }
 
     public User findByUserId(Integer id) {
-        User user = entityManager.find(User.class,id);
+        User user = entityManager.find(User.class, id);
         return user;
     }
 
     public User findByUserName(String username) {
         User user;
-        try{
-            user = entityManager.createQuery("SELECT u FROM User u where u.username = :name",User.class)
+        try {
+            user = entityManager.createQuery("SELECT u FROM User u where u.username = :name", User.class)
                     .setParameter("name", username).getSingleResult();
             return user;
-        } catch (NoResultException nre){
+        } catch (NoResultException nre) {
             user = null;
             return user;
         }
     }
 
     public void updateImage(Integer id, String url) {
-        User user = entityManager.getReference(User.class,id);
+        User user = entityManager.getReference(User.class, id);
         user.setUrl(url);
     }
 
     public void updateContent(Integer id, User user) {
-        User newUser = entityManager.getReference(User.class,id);
+        User newUser = entityManager.getReference(User.class, id);
         newUser.setFirstName(user.getFirstName());
         newUser.setLastName(user.getLastName());
         newUser.setCity(user.getCity());
@@ -64,8 +65,17 @@ public class UserDaoImpl implements UserDao {
             user = entityManager.createQuery("SELECT u FROM User u WHERE u.username=:name", User.class)
                     .setParameter("name", username).getSingleResult();
             return true;
-        }catch (NoResultException e){
+        } catch (NoResultException e) {
             return false;
+        }
+    }
+
+    public void banUser(Integer id) {
+        User newUser = entityManager.getReference(User.class, id);
+        if (newUser != null) {
+            if (newUser.isEnabled() == true) {
+                newUser.setEnabled(false);
+            } else newUser.setEnabled(true);
         }
     }
 }

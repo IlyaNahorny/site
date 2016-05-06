@@ -87,9 +87,15 @@
                             <img ng-src="{{user.url}}" class="img-rounded" width="160" height="150">
                         </a>
                     </div>
-                    <div class="col-md-5" style="font-size: 20px">
-                        <p>
+                    <div class="col-md-5" style="font-size: 15px">
+                        <p style="font-size: x-large">
                             {{user.firstName}} {{user.lastName}}
+                        </p>
+                        <p>
+                            {{'CITY' | translate}} : {{user.city}}
+                        </p>
+                        <p>
+                            {{'JOB' | translate}} : {{user.job}}
                         </p>
                     </div>
                 </div>

@@ -18,4 +18,6 @@ public class UserRoleDaoImpl implements UserRoleDao {
     public void add(UserRole userRole) {
         entityManager.persist(userRole);
     }
+
+
 }

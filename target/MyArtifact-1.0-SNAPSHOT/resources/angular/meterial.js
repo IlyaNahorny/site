@@ -35,7 +35,8 @@ materialModule.config(['$translateProvider', function ($translateProvider) {
         RESET: 'Reset',
         ADDIMAGE: 'Add image',
         TEMPLATE: 'Template',
-        TEMPLSELECT: 'Template selection'
+        TEMPLSELECT: 'Template selection',
+        ADMINPAGE: 'Admin page'
 
     })
         .translations('ru', {
@@ -73,7 +74,8 @@ materialModule.config(['$translateProvider', function ($translateProvider) {
             RESET: 'Сброс',
             ADDIMAGE: 'Добавить изображение',
             TEMPLATE: 'Шаблон',
-            TEMPLSELECT: 'Выбор шаблона'
+            TEMPLSELECT: 'Выбор шаблона',
+            ADMINPAGE: 'Страница админа'
         });
 
     $translateProvider.preferredLanguage('ru');

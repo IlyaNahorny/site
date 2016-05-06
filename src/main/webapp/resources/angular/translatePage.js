@@ -26,7 +26,8 @@ userModule.config(['$translateProvider', function ($translateProvider) {
         UPDATECONTENT:'Update',
         STYLE:'Style',
         LIGHT: 'light',
-        DARK:'dark'
+        DARK:'dark',
+        ADMINPAGE: 'Admin page'
 
     })
         .translations('ru', {
@@ -55,7 +56,8 @@ userModule.config(['$translateProvider', function ($translateProvider) {
             UPDATECONTENT: 'Обновить',
             STYLE:'Стиль',
             LIGHT: 'светлый',
-            DARK:'темный'
+            DARK:'темный',
+            ADMINPAGE: 'Страница админа'
         });
 
     $translateProvider.preferredLanguage('ru');

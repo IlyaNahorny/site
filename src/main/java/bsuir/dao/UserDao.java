@@ -9,12 +9,21 @@ import java.util.List;
  */
 public interface UserDao {
 
-    public List<User> getAllUsers();
-    public void add(User user);
-    public void remove(Integer userId);
-    public User findByUserName(String username);
-    public User findByUserId(Integer id);
-    public Boolean alreadyExist(String username);
-    public void updateImage(Integer id, String url);
-    public void updateContent(Integer id, User user);
+    List<User> getAllUsers();
+
+    void add(User user);
+
+    void remove(Integer userId);
+
+    User findByUserName(String username);
+
+    User findByUserId(Integer id);
+
+    Boolean alreadyExist(String username);
+
+    void updateImage(Integer id, String url);
+
+    void updateContent(Integer id, User user);
+
+    void banUser(Integer id);
 }

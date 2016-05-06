@@ -42,6 +42,11 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <sec:authorize access="hasRole('ROLE_ADMIN')">
+                            <a href="/admin">{{'ADMINPAGE' | translate}}</a>
+                        </sec:authorize>
+                    </li>
                 </ul>
             </c:if>
         </sec:authorize>
